@@ -11,6 +11,7 @@ const Navbar = () => {
     const links = <>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/singup'}>SingUp</NavLink>
+        <NavLink to={'/singin'}>SingIn</NavLink>
         <NavLink to={'/login'}>LogIn</NavLink>
         <NavLink to={'/login2'}>LogIn2</NavLink>
         

@@ -12,6 +12,7 @@ import SingUp2 from './components/SingUp2/SingUp2.jsx';
 import AuthProvider from './components/Providers/AuthProvider.jsx';
 import Login from './components/Login/Login.jsx';
 import Login2 from './components/Login2/Login2.jsx';
+import SingIn from './components/SingIn/SingIn.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/login2',
         element:<Login2></Login2>
+      },
+      {
+        path:'/singin',
+        element:<SingIn></SingIn>
       }
     ]
   },
