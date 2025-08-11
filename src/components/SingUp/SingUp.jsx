@@ -1,12 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const SingUp = () => {
+
+  const {createUser} = useContext(AuthContext)
+  console.log(createUser)
 
     const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
+        
+        //create user
+        createUser(email, password)
+        .then(result => {
+          console.log(result.user)
+        })
+        .catch(error =>{
+          console.log('error', error.message)
+        })
     }
 
   return (

@@ -9,6 +9,9 @@ import {
 import Home from './components/Home/Home.jsx';
 import SingUp from './components/SingUp/SingUp.jsx';
 import SingUp2 from './components/SingUp2/SingUp2.jsx';
+import AuthProvider from './components/Providers/AuthProvider.jsx';
+import Login from './components/Login/Login.jsx';
+import Login2 from './components/Login2/Login2.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,14 @@ const router = createBrowserRouter([
       {
         path:'/singup2',
         element:<SingUp2></SingUp2>
+      },
+      {
+        path: '/login',
+        element:<Login></Login>
+      },
+      {
+        path: '/login2',
+        element:<Login2></Login2>
       }
     ]
   },
@@ -33,6 +44,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
