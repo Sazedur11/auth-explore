@@ -11,15 +11,23 @@ const Navbar = () => {
     .then(() =>{
       console.log('sing out user')
     })
-    .catch(error => console.log(error.message))
+    .catch(error => console.log('error', error.message))
   }
 
     const links = <>
         <NavLink to={'/'}>Home</NavLink>
         <NavLink to={'/singup'}>SingUp</NavLink>
         <NavLink to={'/singin'}>SingIn</NavLink>
-        <NavLink to={'/login'}>LogIn</NavLink>
-        <NavLink to={'/login2'}>LogIn2</NavLink>
+        
+        {
+          user && <>
+            <NavLink to={'/orders'}>Orders</NavLink>
+            <NavLink to={'/cart'}>Cart</NavLink>
+          </>
+        }
+
+        {/* <NavLink to={'/login'}>LogIn</NavLink> */}
+        {/* <NavLink to={'/login2'}>LogIn2</NavLink> */}
         
     </>
 

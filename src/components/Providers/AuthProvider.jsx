@@ -7,8 +7,10 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
+    const [loading, setLoading] =useState(true)
 
   const createUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email,password)
   };
   const userLogin = (email, password) => {
@@ -18,10 +20,12 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email,password)
   };
   const userSingin = (email, password) =>{
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   };
 
   const singOut = () =>{
+    setLoading(true)
     return signOut(auth)
   }
  
@@ -30,6 +34,7 @@ const AuthProvider = ({ children }) => {
         if(activeUser){
             console.log('see active user', activeUser);
             setUser(activeUser)
+            setLoading(false)
         }
         else{
             console.log('no active user')
@@ -42,7 +47,7 @@ const AuthProvider = ({ children }) => {
   },[])
 
   const authInfo = {
-    name: "SingUp",
+    loading,
     user,
     createUser,
     userLogin,

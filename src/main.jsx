@@ -13,6 +13,9 @@ import AuthProvider from './components/Providers/AuthProvider.jsx';
 import Login from './components/Login/Login.jsx';
 import Login2 from './components/Login2/Login2.jsx';
 import SingIn from './components/SingIn/SingIn.jsx';
+import Orders from './components/Orders/Orders.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
+import Cart from './components/Cart/Cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +45,14 @@ const router = createBrowserRouter([
       {
         path:'/singin',
         element:<SingIn></SingIn>
+      },
+      {
+        path:'/orders',
+        element:<PrivateRoute><Orders></Orders></PrivateRoute>
+      },
+      {
+        path: '/cart',
+        element:<PrivateRoute> <Cart></Cart> </PrivateRoute>
       }
     ]
   },

@@ -1,19 +1,23 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 const SingIn = () => {
 
     const {userSingin} = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleSingin = e =>{
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value
-        console.log('singied')
+        
         userSingin(email, password)
         .then(result => {
             console.log(result.user)
+            e.target.reset()
+            navigate('/cart')
         })
         .catch(error =>{
             console.log('error', error.message)
